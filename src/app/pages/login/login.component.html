@@ -1,0 +1,30 @@
+<div id="login">
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <h3 class="text-center text-white pt-5">User Login</h3>
+                <div id="login-box" class="col-md-12">
+                    <form id="login-form" [formGroup]="loginForm" (submit)="login()">
+                        <div class="form-group">
+                            <label for="username" class="text-info">Email:</label><br>
+                            <input type="text" class="form-control" formControlName="email"
+                                [ngClass]="{ 'is-invalid': loginForm.controls['email'].invalid && submitted  }">
+                            <p class="text-danger" *ngIf="loginForm.controls['email'].invalid && submitted">Email
+                                Requried</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="text-info">Password:</label><br>
+                            <input type="password" class="form-control" formControlName="password"
+                                [ngClass]="{ 'is-invalid': loginForm.controls['password'].invalid && submitted }">
+                            <p class="text-danger" *ngIf="loginForm.controls['password'].invalid && submitted">Email
+                                Requried</p>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="submit" class="btn btn-info btn-md" value="Login">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

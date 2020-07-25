@@ -1,0 +1,80 @@
+<div class="container register-form">
+    <div class="form" [formGroup]="registerForm">
+        <div class="note">
+            <h2>User Register</h2>
+        </div>
+        <div class="form-content">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Fisrt Name *"
+                            formControlName="firstname" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Last Name *" formControlName="lastname" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Email Id *" formControlName="email" />
+                        <div *ngIf="form.email.touched && form.email.invalid" class="text text-danger">
+                            <div>Invalid email id.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Mobile Number *"
+                            formControlName="mobile" />
+                        <div *ngIf="form.mobile.touched && form.mobile.invalid" class="text text-danger">
+                            <div>Invalid Mobile Number.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="gender-group">
+                            <div class="gnder">Gender</div>
+                            <label class="radio-inline"><input type="radio" value="male" formControlName="gender">
+                                <span class="label">Male</span></label>
+                            <label class="radio-inline"><input type="radio" value="female"
+                                    formControlName="gender"><span class="label">Female</span></label>
+                            <label class="radio-inline"><input type="radio" value="tg" formControlName="gender"><span
+                                    class="label">TG</span></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Address" formControlName="address"></textarea>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Password *"
+                            formControlName="password" />
+                        <div *ngIf="form.password.touched && form.password.invalid" class="text text-danger">
+                            <div>password must contain 8 characters.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Confirm Password"
+                            formControlName="confirmpassword">
+                        <div *ngIf="form.confirmpassword.touched && form.confirmpassword.invalid"
+                            class="text text-danger">
+                            <div *ngIf="form.confirmpassword.errors.required">Password is required.</div>
+                            <div *ngIf="form.confirmpassword.errors.confirmedValidator">Password and Confirm Password
+                                must
+                                be match.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btnSubmit" (click)="save()">Submit</button>
+        </div>
+    </div>
+</div>
